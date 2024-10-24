@@ -1,0 +1,104 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+class Person{
+    String name;
+    int age;
+    String nationality;
+    String Address;
+    Person(){
+        System.out.println("I am a person");
+    }
+
+    public void inputs(){
+        Scanner obj = new Scanner(System.in);
+        System.out.println("enter name");
+        name = obj.nextLine();
+        System.out.println("enter age");
+        age = obj.nextInt();
+        System.out.println("enter nationality");
+        nationality = obj.next();
+        System.out.println("enter address");
+        Address = obj.next();
+    }
+    public void display(){
+        System.out.println("***Person infos***");
+        System.out.println("name: " + name);
+        System.out.println("age: " + age);
+        System.out.println("nationality: " + nationality);
+        System.out.println("address: " + Address);
+    }
+}
+
+class Employee extends Person {
+
+    String company_name;
+    String city;
+    int years;
+    
+
+    Employee(){
+        super ();
+        System.out.println("I am an employee");
+    }
+
+    public void inputs(){
+        Scanner obj = new Scanner(System.in);
+        System.out.println("\n\nenter company_name");
+        company_name = obj.nextLine();
+        System.out.println("enter city");
+        city = obj.next();
+        System.out.println("enter number of years worked");
+        years = obj.nextInt();
+    }
+
+    public void display(){
+        System.out.println("\n***Employees infos***");
+        System.out.println("name: " + company_name);
+        System.out.println("company's location: " + city);
+        System.out.println("years worked: " + years);
+    }
+    
+}
+
+public class Manager extends Employee {
+
+    Manager(){
+        super();
+        System.out.println("I am a manager");
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        Person p = new Person();
+        p.inputs();
+        p.display();
+
+        Employee emp = new Employee();
+        emp.inputs();
+        emp.display();
+
+        Manager man = new Manager();
+
+        List<String> employees = new ArrayList<>();
+
+
+        //accepting employees name
+        Scanner obj = new Scanner(System.in);
+        int num_employee = 5;
+        int i = 0;
+        String name;
+        while (i<num_employee) {
+            System.out.println("enter employee name " + i);
+            name = obj.nextLine();
+            employees.add(name);
+            i++;
+        }
+
+        System.out.println("Employees:");
+        System.out.println(employees);
+        
+    }
+}
